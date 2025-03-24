@@ -7,8 +7,10 @@ use Illuminate\Pagination\Paginator; //追記
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function boot(): void
+    public function boot()
     {
+        \URL::forceScheme('https');
+        $this->app['request']->server->set('HTTPS', 'on');
         Paginator::useBootstrap();    //追記
 
 
