@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
+use Cloudinary;
 
 class PostController extends Controller
 {
@@ -29,6 +30,10 @@ class PostController extends Controller
     }
     public function store(Post $post, PostRequest $request)
     {
+        //cloudinaryへ画像を送信し、画像のURLを$image_urlに代入している
+        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        dd($image_url);  //画像のURLを画面に表示
+
         $input = $request['post'];
 
         // 認証済みユーザーのIDを追加

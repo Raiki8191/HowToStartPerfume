@@ -18,11 +18,11 @@ use App\Http\Controllers\PageController;
 |
 */
 
-/*以下本来の設定を書き換えてトップページの作成にとりかかる
+//以下本来の設定を書き換えてトップページの作成にとりかかる
 Route::get('/', function () {
     return view('welcome');
 });
-*/
+
 
 /*testで消した
 Route::get('/', function () {
@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
 
 // 投稿関連のルート
 // 投稿関連のルート
-Route::get('/', [PostController::class, 'index']);
+//Route::get('/', [PostController::class, 'index']);
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index'); // ← 追加
 

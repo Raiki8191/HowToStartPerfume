@@ -8,7 +8,7 @@
 
 <body>
     <h1>投稿作成画面</h1>
-    <form action="/posts" method="POST">
+    <form action="/posts" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="title">
             <h2>タイトル</h2>
@@ -32,7 +32,7 @@
         </div>
         <div class="image">
             <h2>写真(任意)</h2>
-            <input type="text" name="post[image]" placeholder="写真を貼れる方はお願いします。(任意)" value="{{ old('post.image') }}" />
+            <input type="file" name="post[image]" placeholder="写真を貼れる方はお願いします。(任意)" value="{{ old('post.image') }}" />
             <p class="image__error" style="color:red">{{ $errors->first('post.image') }}</p>
         </div>
         <input type="submit" value="保存" />
