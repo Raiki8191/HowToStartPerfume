@@ -19,12 +19,20 @@
             <p class='content'>{{ $post->content }}</p>
             <p class='brand'>{{ $post->brand }}</p>
             <p class='perfume_name'>{{ $post->perfume_name }}</p>
-            <p class='image'>{{ $post->image }}</p>
+            <p class='image'>
+                @if($post->image)
+            <div>
+                <img src="{{ $post->image }}" alt="画像が読み込めません。">
+            </div>
+            @endif
+            </p>
+            @can('delete', $post)
             <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                 @csrf
                 @method('DELETE')
                 <button type="button" onclick="deletePost({{ $post->id }})">delete</button>
             </form>
+            @endcan
         </div>
         @endforeach
         <a href='/posts/create'>create</a>

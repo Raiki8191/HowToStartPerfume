@@ -9,9 +9,9 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        \URL::forceScheme('https');
-        $this->app['request']->server->set('HTTPS', 'on');
-        Paginator::useBootstrap();    //追記
+        // \URL::forceScheme('https');
+        // $this->app['request']->server->set('HTTPS', 'on');
+        // Paginator::useBootstrap();    //追記
 
 
         // Paginator::useBootstrapFive();    公式ドキュメント

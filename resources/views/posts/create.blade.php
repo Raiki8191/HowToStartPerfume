@@ -32,7 +32,7 @@
         </div>
         <div class="image">
             <h2>写真(任意)</h2>
-            <input type="file" name="post[image]" placeholder="写真を貼れる方はお願いします。(任意)" value="{{ old('post.image') }}" />
+            <input type="file" name="image" placeholder="写真を貼れる方はお願いします。(任意)" value="{{ old('post.image') }}" />
             <p class="image__error" style="color:red">{{ $errors->first('post.image') }}</p>
         </div>
         <input type="submit" value="保存" />

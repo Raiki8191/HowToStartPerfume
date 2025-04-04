@@ -9,7 +9,8 @@
 <body>
     <h1 class="title">編集画面</h1>
     <div class="contents">
-        <form action="{{ route('posts.update', ['post' => $post->id]) }}" method="POST">
+        <form action="{{ route('posts.update', ['post' => $post->id]) }}" method="POST" enctype="multipart/form-data">
+
             @csrf
             @method('PUT') {{-- ここを追加！ --}}
 
@@ -24,6 +25,20 @@
 
             <label for="content">内容:</label>
             <input type="text" name="post[content]" value="{{ old('post.content', $post->content) }}" required>
+
+            {{-- 画像を表示 --}}
+            @if ($post->image)
+            <div>
+                <p>現在の画像:</p>
+                <img src="{{ $post->image }}" alt="投稿画像" style="max-width: 300px; height: auto;">
+                <br>
+                <input type="checkbox" name="delete_image" value="1"> 画像を削除
+            </div>
+            @endif
+
+            <label for="image">新しい写真をアップロード（任意）:</label>
+            <input type="file" name="image">
+
             @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
