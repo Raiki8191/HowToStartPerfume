@@ -5,7 +5,7 @@
     <h1 class="title">{{ $post->title }}</h1>
 
     <div class="content">
-        <p><strong>内容:</strong> {{ $post->content }}</p>
+        <p class="text-red-400"><strong>内容:</strong> {{ $post->content }}</p>
         <p><strong>ブランド名:</strong> {{ $post->brand }}</p>
         <p><strong>香水名:</strong> {{ $post->perfume_name }}</p>
         @if($post->image)
@@ -13,6 +13,24 @@
             <img src="{{ $post->image }}" alt="画像が読み込めません。">
         </div>
         @endif
+
+        {{-- いいね機能 --}}
+        @auth
+        <div>
+            <form action="{{ route('posts.toggle_like', $post->id) }}" method="POST">
+                @csrf
+                <button type="submit">
+                    @if(auth()->user()->likedPosts->contains($post->id))
+                    💔 いいね解除
+                    @else
+                    ❤️ いいね
+                    @endif
+                </button>
+            </form>
+
+        </div>
+        @endauth
+
         @if (Auth::check())
         <form action="{{ route('comments.store', $post) }}" method="POST">
             @csrf

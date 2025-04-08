@@ -16,6 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('user_id');
             $table->foreignId('post_id');
+
+            $table->unique(['user_id', 'post_id']); // 同じユーザーが同じ投稿に複数いいねできないように
         });
     }
 

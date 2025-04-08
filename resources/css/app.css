@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* ここにcssでの記述を書くがbladeに */
+.content {
+    font-size: 30px;
+}

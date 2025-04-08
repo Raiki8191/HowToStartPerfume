@@ -30,4 +30,13 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+    public function likedUsers()
+    {
+        return $this->belongsToMany(User::class, 'likes')->withTimestamps();
+    }
+    // Post.php に追加されていない場合は必ず追加してください
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

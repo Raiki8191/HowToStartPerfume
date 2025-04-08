@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Like;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Cloudinary;
 
 class PostController extends Controller
