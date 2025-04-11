@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('perfume_name');
             $table->string('image')->nullable();
             $table->timestamps();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
     }
 

@@ -24,6 +24,9 @@ class LikeController extends Controller
             $post->user->notify(new LikedPostNotification($user, $post));
         }
 
+        // いいね数を再取得して表示する場合に更新
+        $post->loadCount('likes');  // 投稿に関連する「いいね数」を更新
+
         return back();
     }
 }

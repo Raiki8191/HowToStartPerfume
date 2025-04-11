@@ -39,4 +39,14 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    // 現在のいいね数を取得（likeが存在している数＝解除されてないもの）
+    public function getLikesCountAttribute()
+    {
+        return $this->likes()->count(); // `likes` テーブルが「現在のいいね」だけ持つならこれでOK
+    }
 }

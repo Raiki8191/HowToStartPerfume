@@ -9,6 +9,8 @@ use App\Http\Controllers\CurationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\NotificationController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,21 +50,46 @@ Route::get('/', [PostController::class, 'index']);
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index'); // ← 追加
 
+// Route::middleware('auth')->group(function () {
+//     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+//     Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+//     Route::post('/posts/{post}/toggle-like', [LikeController::class, 'toggle'])->name('posts.toggle_like');
+//     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+//     Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
+//     // Route::post('/posts/{post}/like', [LikeController::class, 'store'])->middleware('auth')->name('posts.like');
+//     // Route::delete('/posts/{post}/unlike', [LikeController::class, 'destroy'])->middleware('auth')->name('posts.unlike');
+//     Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+//     Route::delete('/posts/{post}', [PostController::class, 'delete']);
+//     Route::get('/notifications', function () {
+//         return view('notifications.index', [
+//             'notifications' => auth()->user()->notifications
+//         ]);
+//     })->middleware('auth');
+// });
+
 Route::middleware('auth')->group(function () {
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
     Route::post('/posts/{post}/toggle-like', [LikeController::class, 'toggle'])->name('posts.toggle_like');
     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
     Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
-    // Route::post('/posts/{post}/like', [LikeController::class, 'store'])->middleware('auth')->name('posts.like');
-    // Route::delete('/posts/{post}/unlike', [LikeController::class, 'destroy'])->middleware('auth')->name('posts.unlike');
     Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
-    Route::delete('/posts/{post}', [PostController::class, 'delete']);
+    Route::delete('/posts/{post}', [PostController::class, 'delete'])->name('posts.delete');
+
     Route::get('/notifications', function () {
-        return view('notifications.index', [
-            'notifications' => auth()->user()->notifications
-        ]);
-    })->middleware('auth');
+        $user = Auth::user();
+        $notifications = $user->notifications;
+
+        // ここで未読通知を全て既読にする
+        $user->unreadNotifications->markAsRead();
+
+        return view('notifications.index', compact('notifications'));
+    })->name('notifications.index')->middleware('auth');
+    // Route::get('/notifications', function () {
+    //     return view('notifications.index', [
+    //         'notifications' => auth()->user()->notifications
+    //     ]);
+    // })->name('notifications.index');
 });
 
 // 投稿詳細ページ（未ログインでも見られる）
@@ -93,9 +120,9 @@ Route::get('/privacy', [PageController::class, 'privacy'])->name('privacy');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
 // ダッシュボード
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 // 認証が必要なルート
 Route::middleware('auth')->group(function () {
