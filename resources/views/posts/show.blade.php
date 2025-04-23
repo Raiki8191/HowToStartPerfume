@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-4xl mx-auto py-10 px-4">
+<div class="min-h-screen py-8 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="bg-white rounded-2xl shadow-md overflow-hidden">
         @if($post->image)
         <img src="{{ $post->image }}" alt="画像が読み込めません" class="w-full h-auto object-cover">
@@ -61,7 +61,7 @@
                 @can('update', $post)
                 <a href="{{ route('posts.edit', ['post' => $post->id]) }}" class="text-sm text-blue-600 hover:underline">編集</a>
                 @endcan
-                <a href="/" class="text-sm text-gray-500 hover:underline">← 戻る</a>
+                <a href="/posts" class="text-sm text-gray-500 hover:underline">← 戻る</a>
             </div>
         </div>
     </div>

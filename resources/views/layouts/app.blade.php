@@ -33,6 +33,17 @@
         <main>
             @yield('content')
         </main>
+
+        <footer class="footer">
+            <p>
+                <a href="{{ route('about') }}">perfumuseについて</a> |
+                <a href="{{ route('guides') }}">ガイド・ヘルプ</a> |
+                <a href="{{ route('terms') }}">利用規約</a> |
+                <a href="{{ route('privacy') }}">プライバシーポリシー</a> |
+                <a href="{{ route('contact') }}">お問い合わせ</a>
+            </p>
+            <p>© 2025 perfumuse. All rights reserved.</p>
+        </footer>
     </div>
 </body>
 

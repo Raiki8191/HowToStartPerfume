@@ -1,13 +1,10 @@
-<!DOCTYPE HTML>
-<html lang="ja">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <title>Blog</title>
-</head>
+@section('content')
+<div class="bg-gray-50 min-h-screen py-8 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- タイトル -->
+    <h1 class="text-3xl font-semibold text-gray-800 mb-6 text-center">編集画面</h1>
 
-<body>
-    <h1 class="title">編集画面</h1>
     <div class="contents">
         <form action="{{ route('posts.update', ['post' => $post->id]) }}" method="POST" enctype="multipart/form-data">
 
@@ -52,6 +49,4 @@
             <button type="submit" class="btn btn-primary">更新</button>
         </form>
     </div>
-</body>
-
-</html>
+    @endsection

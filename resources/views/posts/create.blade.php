@@ -1,13 +1,10 @@
-<!DOCTYPE HTML>
-<html lang="ja">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <title>Blog</title>
-</head>
+@section('content')
+<div class="bg-gray-50 min-h-screen py-8 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- タイトル -->
+    <h1 class="text-3xl font-semibold text-gray-800 mb-6 text-center">新規投稿</h1>
 
-<body>
-    <h1>投稿作成画面</h1>
     <form action="/posts" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="title">
@@ -40,6 +37,4 @@
     <div class="footer">
         <a href="/">戻る</a>
     </div>
-</body>
-
-</html>
+    @endsection('content')

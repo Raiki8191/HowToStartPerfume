@@ -23,9 +23,9 @@ use Illuminate\Support\Facades\Auth;
 */
 
 //以下本来の設定を書き換えてトップページの作成にとりかかる
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 
 /*testで消した
@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function () {
 */
 
 // 投稿関連のルート
-Route::get('/', [PostController::class, 'index']);
+// Route::get('/', [PostController::class, 'index']);
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index'); // ← 追加
 
