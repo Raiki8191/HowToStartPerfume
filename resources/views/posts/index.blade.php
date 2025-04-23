@@ -8,7 +8,7 @@
 
         <!-- 新規投稿ボタン（上部・認証ユーザーのみ） -->
         @auth
-        <div class="mb-8 text-right">
+        <div class="mb-8 text-center">
             <a href="{{ route('posts.create') }}"
                 class="inline-block px-5 py-2 bg-green-600 text-white font-medium rounded-lg shadow hover:bg-green-700 transition">
                 ＋ 新規投稿
