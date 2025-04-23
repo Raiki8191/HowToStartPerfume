@@ -36,11 +36,16 @@
 
         <footer class="footer">
             <p>
-                <a href="{{ route('about') }}">perfumuseについて</a> |
+                <!-- <a href="{{ route('about') }}">perfumuseについて</a> |
                 <a href="{{ route('guides') }}">ガイド・ヘルプ</a> |
                 <a href="{{ route('terms') }}">利用規約</a> |
                 <a href="{{ route('privacy') }}">プライバシーポリシー</a> |
-                <a href="{{ route('contact') }}">お問い合わせ</a>
+                <a href="{{ route('contact') }}">お問い合わせ</a> -->
+                (開発中)perfumuseについて |
+                ガイド・ヘルプ |
+                利用規約 |
+                プライバシーポリシー |
+                お問い合わせ
             </p>
             <p>© 2025 perfumuse. All rights reserved.</p>
         </footer>
