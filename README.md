@@ -1,66 +1,97 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Perfumuse（パフュミューズ）
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 概要
 
-## About Laravel
+Perfumuseは、香水を芸術作品として捉え、ユーザー同士がその魅力を共有・発信するためのウェブアプリです。フロントエンド・バックエンド・デプロイを含め、1人で企画・開発を行いました。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 制作背景
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### なぜこの成果物を作ったか
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+香水の奥深さやアート性に魅了され、アロマテラピー検定1級の知識を活かして「香水を語る場」を作りたいと思ったのがきっかけです。
 
-## Learning Laravel
+### どんな理由でどういう機能を実装する運びとなったのか
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- ユーザーが香水を紹介し合う「投稿機能」
+- 気になった投稿を気軽に評価できる「いいね機能」
+- 投稿に感想を残せる「コメント機能」
+- 画像はCloudinaryで管理することで、サーバーのストレージ圧迫を回避
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+また、「いいね」されたことを知ることで交流が生まれるように、通知機能も実装中です。
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### どんな困っている人・ことを解決できそうか
 
-## Laravel Sponsors
+- 香水が好きだけど周囲に語れる人がいない
+- 話題の香水より“隠れた名香”を知りたい
+- 香水初心者で選び方がわからない
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+そんな人々が、自分の視点で香水を紹介したり、新たな出会いを得られる空間です。
 
-### Premium Partners
+## URL・テストユーザー
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- URL: 準備中
+- テストユーザー:
+    - メールアドレス: `testuser@example.com`
+    - パスワード: `password123`
 
-## Contributing
+※あくまで開発・レビュー用のユーザーです。本番用とは分けてあります。
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 使用技術
 
-## Code of Conduct
+- PHP: 8.2.x
+- Laravel: 10.48.28
+- Tailwind CSS: 3.x
+- MySQL: 8.x
+- Docker
+- GitHub
+- 認証: Laravel Breeze
+- 画像アップロード: Cloudinary
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+[](https://skillicons.dev/icons?i=php,laravel,tailwind,docker,mysql,github)
 
-## Security Vulnerabilities
+## 開発期間
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+約3ヶ月（企画〜初回実装完了まで）
 
-## License
+## 機能一覧
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- ユーザー認証（新規登録・ログイン・ログアウト）
+- 投稿の作成・閲覧・編集・削除（CRUD）
+- 投稿に画像を1枚アップロード（Cloudinary連携）
+- コメント機能
+- いいね機能（投稿への評価）
+- 通知機能（いいね・コメントへの通知、実装中）
+- ユーザープロフィールページ
+- 投稿のテーマ／カテゴリ別一覧
+- キュレーションページ（おすすめまとめ）
+- フィルタリング・検索機能
+- 投稿ランキング表示
+- コレクション機能（未実装）
+- フォーラム機能（未実装）
+
+## 特に注目してほしい機能
+
+- 画像投稿とCloudinary連携の実装
+- いいね機能と通知の仕組み（`LikeController`と`LikedPostNotification`による）
+- Tailwindを使ったシンプルかつ芸術的なUIデザイン
+
+## 工夫点・苦労した点
+
+- Cloudinary連携時の署名認証設定
+- 自分の投稿には「いいね」できない仕様に調整
+- 通知が不要な操作（自分の投稿など）には送らないよう制御
+- Laravel Breezeでの軽量な認証導入
+- Docker環境でのLaravel・MySQL接続設定
+
+## 今後の展望
+
+- コメントに対する返信機能（スレッド形式）
+- いいね数によるランキング表示
+- 香りの系統・季節別の絞り込み機能
+- テスト導入（PHPUnit）
+- 投稿のコレクション化機能
+- ChatGPT APIによる香水レコメンドの導入
+
+## ER図・ワイヤーフレーム
+
+![alt text](<スクリーンショット 2025-04-23 193358.png>)
